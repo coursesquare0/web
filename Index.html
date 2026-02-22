@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algebra 101 | Md Amir Hamza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --accent: #60a5fa;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background: var(--bg-gradient);
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .phone-wrapper {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 32px;
+      border: 6px solid #334155;
+      overflow: hidden;
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Banner */
+    .hero-section {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .hero-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Content */
+    .content-body {
+      padding: 22px 20px 24px;
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Pricing */
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-tag {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
+    }
+
+    .meta-small {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .feature-pill {
+      display: inline-block;
+      background: rgba(96, 165, 250, 0.15);
+      color: var(--accent);
+      padding: 5px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    /* Mentor */
+    .mentor-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .mentor-box {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(96, 165, 250, 0.15);
+      border: 1px solid var(--glass-border);
+      color: var(--accent);
+      font-size: 26px;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
+    }
+
+    .mentor-info p {
+      font-size: 12px;
+      color: #cbd5e1;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .mentor-info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    /* Description */
+    .quote-box {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      font-style: italic;
+    }
+
+    /* Enroll Button */
+    .btn-enroll {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: #2563eb;
+      color: #fff;
+      padding: 16px;
+      border-radius: 16px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 12px 25px -8px rgba(37, 99, 235, 0.5);
+      transition: all 0.3s;
+      margin-top: 4px;
+    }
+
+    .btn-enroll:hover {
+      background: #1d4ed8;
+      box-shadow: 0 16px 30px -10px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-enroll:active {
+      transform: scale(0.97);
+    }
+
+    /* Social Section */
+    .social-section {
+      text-align: center;
+      margin-top: 28px;
+      color: #94a3b8;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
+    .social-footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 16px;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .channel-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--glass-border);
+      transition: transform 0.3s ease;
+    }
+
+    .channel-logo:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Copyright */
+    .copyright {
+      text-align: center;
+      padding: 12px;
+      font-size: 12px;
+      color: #64748b;
+      background: rgba(0, 0, 0, 0.15);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    @media (max-width: 380px) {
+      .hero-section { height: 220px; }
+      .price-tag { font-size: 24px; }
+      .mentor-box { width: 60px; height: 60px; font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="phone-wrapper">
+  <!-- Banner -->
+  <div class="hero-section">
+    <img src="https://i.ibb.co/hFrcjm6c/Algebra-101-20260221-152222-0000-page-0001.jpg" alt="Algebra 101 Banner">
+  </div>
+
+  <div class="content-body">
+    <!-- Pricing -->
+    <div class="card">
+      <div class="pricing-row">
+        <div>
+          <div class="price-tag">985/-</div>
+          <div class="meta-small">One-time Enrollment</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-weight:600;">18 Lectures</div>
+          <div style="margin-top:8px;">
+            <span class="feature-pill">Premium Notes</span>
+            <span class="feature-pill">Lecture Sheets</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mentor -->
+    <div class="card mentor-badge">
+      <div class="mentor-box">Σ</div>
+      <div class="mentor-info">
+        <p>Mentor</p>
+        <h3>Md Amir Hamza</h3>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="card">
+      <p class="quote-box">
+        "যারা বীজগণিতের প্রাথমিক ধারণাগুলোকে বুঝতে চান তাদের জন্যই এই ক্ষুদ্র উদ্যোগ। এখানে সূত্র নয়, চিন্তার সৌন্দর্যই হবে মূল আলোচ্য। ভালো থাকুন। বীজগণিতের পথে আপনার যাত্রা শুভ হোক!" — মোঃ আমির হামজা
+      </p>
+    </div>
+
+    <!-- Enroll Button -->
+    <a class="btn-enroll"
+       href="mailto:ducksmathematics@gmail.com?subject=Enrollment%20Request%20-%20Algebra%20101&body=Assalamualaikum,%0D%0A%0D%0AI%20hope%20this%20message%20finds%20you%20well.%0D%0A%0D%0AMy%20name%20is%20%5BYour%20Full%20Name%5D%2C%20currently%20studying%20in%20%5BYour%20Class%5D%20at%20%5BYour%20Institute%5D.%0D%0A%0D%0AI%20am%20writing%20to%20formally%20request%20enrollment%20in%20your%20course%20%22Algebra%20101%22.%0D%0A%0D%0AStudent%20Information%3A%0D%0A%E2%80%A2%20Date%20of%20Birth%3A%20%5BYour%20Date%20of%20Birth%5D%0D%0A%E2%80%A2%20Address%3A%20%5BYour%20Address%5D%0D%0A%E2%80%A2%20WhatsApp%20Number%3A%20%5BYour%20WhatsApp%20Number%5D%0D%0A%0D%0AI%20would%20be%20grateful%20if%20you%20could%20kindly%20confirm%20my%20enrollment%20and%20provide%20information%20regarding%20the%20next%20steps%2C%20including%20payment%20procedures%20or%20access%20to%20the%20course%20materials.%0D%0A%0D%0AThank%20you%20very%20much%20for%20your%20time%20and%20guidance.%0D%0A%0D%0AJazakAllah%20khair.%0D%0A%0D%0AWarm%20regards%2C%0D%0A%0D%0A%5BYour%20Full%20Name%5D">
+      ENROLL NOW
+    </a>
+
+    <!-- A Course By -->
+    <div class="social-section">
+      <p>A Course By:</p>
+    </div>
+
+    <!-- Logos -->
+    <div class="social-footer">
+      <a href="https://youtube.com/@ducksmathematics?si=sz1PviU0RWnw8YpL" target="_blank" rel="noopener">
+        <img src="https://i.ibb.co/GQ53vT1q/In-Shot-20260218-143854844.png" alt="Duck's Mathematics" class="channel-logo">
+      </a>
+      <a href="https://youtube.com/@promankoroje?si=oXLyw_gVi6ar9TTB" target="_blank" rel="noopener">
+        <img src="https://i.ibb.co/XrsTgBtr/In-Shot-20260218-150023809.png" alt="প্রমাণ করো যে..." class="channel-logo">
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      © 2026 Md Amir Hamza. All rights reserved.
+    </div>
+  </div>
+</div>
+</body>
+</html>
