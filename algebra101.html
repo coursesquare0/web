@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algebra 101 | Duck’s Mathematics × প্রমাণ করো যে...</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="courses.html" class="active">Courses</a>
+    <a href="updates.html">Updates</a>
+  </nav>
+
+  <!-- Logos -->
+  <section class="logo-row">
+    <img src="https://i.ibb.co/GQ53vT1q/In-Shot-20260218-143854844.png" alt="Duck's Mathematics" class="logo">
+    <img src="https://i.ibb.co/XrsTgBtr/In-Shot-20260218-150023809.png" alt="প্রমাণ করো যে..." class="logo">
+  </section>
+
+  <!-- Course Wrapper -->
+  <div class="phone-wrapper">
+    <!-- Hero Banner -->
+    <div class="hero-section">
+      <img src="https://i.ibb.co/hFrcjm6c/Algebra-101-20260221-152222-0000-page-0001.jpg" alt="Algebra 101 Banner">
+    </div>
+
+    <div class="content-body">
+      <!-- Pricing Card -->
+      <div class="card">
+        <div class="pricing-row">
+          <div>
+            <div class="price-tag">985/-</div>
+            <div class="meta-small">One-time Enrollment</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-weight:600;">18 Lectures</div>
+            <div style="margin-top:8px;">
+              <span class="feature-pill">Premium Notes</span>
+              <span class="feature-pill">Lecture Sheets</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentor Badge -->
+      <div class="card mentor-badge">
+        <div class="mentor-box">Σ</div>
+        <div class="mentor-info">
+          <p>Mentor</p>
+          <h3>Md Amir Hamza</h3>
+        </div>
+      </div>
+
+      <!-- Course Quote -->
+      <div class="card">
+        <p class="quote-box">
+          "যারা বীজগণিতের প্রাথমিক ধারণাগুলোকে বুঝতে চান তাদের জন্যই এই ক্ষুদ্র উদ্যোগ। এখানে সূত্র নয়, চিন্তার সৌন্দর্যই হবে মূল আলোচ্য। ভালো থাকুন। বীজগণিতের পথে আপনার যাত্রা শুভ হোক!" — মোঃ আমির হামজা
+        </p>
+      </div>
+
+      <!-- Enroll Button -->
+      <button class="btn-enroll" id="enrollBtn">ENROLL NOW</button>
+
+      <!-- Social Section -->
+      <div class="social-section">
+        <p>A Course By:</p>
+      </div>
+      <div class="social-footer">
+        <a href="https://youtube.com/@ducksmathematics?si=sz1PviU0RWnw8YpL" target="_blank" rel="noopener">
+          <img src="https://i.ibb.co/GQ53vT1q/In-Shot-20260218-143854844.png" alt="Duck's Mathematics" class="channel-logo">
+        </a>
+        <a href="https://youtube.com/@promankoroje?si=oXLyw_gVi6ar9TTB" target="_blank" rel="noopener">
+          <img src="https://i.ibb.co/XrsTgBtr/In-Shot-20260218-150023809.png" alt="প্রমাণ করো যে..." class="channel-logo">
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="copyright">
+        © Duck's Mathematics × প্রমাণ করো যে...
+      </div>
+    </div>
+  </div>
+
+  <!-- Enroll Modal -->
+  <div class="modal" id="enrollModal">
+    <div class="modal-box">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h3>New Batch Coming Soon!</h3>
+      <p>Enrollment will open very soon, In Sha Allah 💫</p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const enrollBtn = document.getElementById('enrollBtn');
+    const modal = document.getElementById('enrollModal');
+    const closeModal = document.getElementById('closeModal');
+
+    enrollBtn.addEventListener('click', () => modal.classList.add('active'));
+    closeModal.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+  </script>
+</body>
+</html>
