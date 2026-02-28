@@ -23,10 +23,20 @@
 <script>
 let resultsData = [];
 
+// Load JSON safely
 fetch('results.json')
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      throw new Error("Failed to load results.json");
+    }
+    return res.json();
+  })
   .then(data => {
     resultsData = data;
+  })
+  .catch(error => {
+    console.error("Error loading results:", error);
+    alert("Result data failed to load. Check JSON file.");
   });
 
 function checkResult() {
@@ -35,12 +45,18 @@ function checkResult() {
   const loading = document.getElementById("loading");
 
   resultBox.innerHTML = "";
+
+  if (!roll) {
+    alert("Please enter roll number");
+    return;
+  }
+
   loading.style.display = "block";
 
   setTimeout(() => {
     loading.style.display = "none";
 
-    const student = resultsData.find(s => s.roll === roll);
+    const student = resultsData.find(s => String(s.roll) === String(roll));
 
     if (student) {
       resultBox.innerHTML = `
@@ -59,8 +75,7 @@ function checkResult() {
         <p>This roll did not receive scholarship.</p>
       `;
     }
-
-  }, 1000);
+  }, 800);
 }
 </script>
 
