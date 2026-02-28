@@ -80,8 +80,27 @@ button:hover {
   font-weight: bold;
 }
 
+/* Footer */
+.footer {
+  margin-top: 25px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Congratulations box */
+.congrats {
+  background: #e6ffe6;
+  color: #0a7a0a;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Mobile Responsive */
 @media (max-width: 480px) {
-  input, button {
+  input,
+  button {
     width: 100%;
     margin-bottom: 10px;
   }
