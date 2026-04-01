@@ -13,131 +13,257 @@
       color: #fff;
       display: flex;
       justify-content: center;
-      align-items: center;
       padding: 20px;
     }
 
     .container {
       width: 100%;
-      max-width: 900px;
-      background: rgba(255, 255, 255, 0.05);
+      max-width: 800px;
+      background: rgba(255,255,255,0.05);
       backdrop-filter: blur(15px);
       border-radius: 20px;
-      padding: 25px;
+      padding: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 20px;
-      font-size: 26px;
       color: #38bdf8;
+      margin-bottom: 20px;
     }
 
-    .day {
-      margin-bottom: 18px;
-      padding: 15px;
+    .accordion {
+      margin-bottom: 10px;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.07);
-      transition: 0.3s;
+      overflow: hidden;
     }
 
-    .day:hover {
-      background: rgba(255, 255, 255, 0.12);
-      transform: translateY(-3px);
-    }
-
-    .day h2 {
-      margin: 0 0 10px;
-      font-size: 18px;
+    .accordion-header {
+      background: rgba(255,255,255,0.08);
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
       color: #facc15;
+      transition: 0.3s;
+      position: relative;
     }
 
-    ul {
+    /* Triangle removed */
+    .accordion-header::after { content: ""; }
+
+    .accordion-header:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: rgba(255,255,255,0.05);
+      transition: max-height 0.4s ease;
+      padding: 0 15px;
+    }
+
+    .accordion-content ul {
+      padding: 10px 20px;
       margin: 0;
-      padding-left: 20px;
     }
 
-    li {
-      margin: 5px 0;
+    .accordion.active .accordion-content {
+      max-height: 500px;
     }
+
+    li { margin: 6px 0; }
 
     .footer {
-      text-align: right;
-      margin-top: 15px;
-      font-style: italic;
+      text-align: center;
+      margin-top: 20px;
       color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer span {
+      color: #38bdf8;
+      font-weight: bold;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 20px;
-      }
+      h1 { font-size: 20px; }
+    }
+
+    /* Popup Styles */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-box {
+      position: relative;
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 25px 40px;
+      border-radius: 15px;
+      font-size: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: popupFade 0.4s ease;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #facc15;
+      font-weight: bold;
+    }
+
+    @keyframes popupFade {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>নবম শ্রেণীর ক্লাস রুটিন ২০২৬ (সাইন্স গ্রুপ)</h1>
+<div class="container">
+  <h1>নবম শ্রেণীর ক্লাস রুটিন ২০২৬ (সাইন্স গ্রুপ)</h1>
 
-    <div class="day">
-      <h2>রবিবার</h2>
+  <!-- রবিবার -->
+  <div class="accordion">
+    <div class="accordion-header">রবিবার</div>
+    <div class="accordion-content">
       <ul>
-        <li>বাংলা (১ম)</li>
-        <li>পদার্থবিজ্ঞান</li>
-        <li>তথ্য ও যোগাযোগ প্রযুক্তি</li>
-        <li>ইংরেজি (১ম/২য়)</li>
-      </ul>
-    </div>
-
-    <div class="day">
-      <h2>সোমবার</h2>
-      <ul>
-        <li>বাংলা (১ম)</li>
-        <li>পদার্থবিজ্ঞান</li>
-        <li>সাধারণ গণিত</li>
-        <li>ইংরেজি (১ম/২য়)</li>
-      </ul>
-    </div>
-
-    <div class="day">
-      <h2>মঙ্গলবার</h2>
-      <ul>
-        <li>বাংলা (২য়)</li>
-        <li>জীববিজ্ঞান</li>
+        <li>বাংলা সাহিত্য</li>
         <li>বাংলাদেশ ও বিশ্বপরিচয়</li>
-        <li>তথ্য ও যোগাযোগ প্রযুক্তি</li>
+        <li>English (For Today/Grammar and Composition)</li>
+        <li>উচ্চতর গণিত</li>
+        <li>ক্যারিয়ার শিক্ষা</li>
+        <li>সাধারণ গণিত</li>
+        <li>পদার্থবিজ্ঞান</li>
       </ul>
     </div>
+  </div>
 
-    <div class="day">
-      <h2>বুধবার</h2>
+  <!-- সোমবার -->
+  <div class="accordion">
+    <div class="accordion-header">সোমবার</div>
+    <div class="accordion-content">
       <ul>
+        <li>বাংলা সাহিত্য</li>
         <li>ইসলাম শিক্ষা</li>
+        <li>English (For Today/Grammar and Composition)</li>
+        <li>উচ্চতর গণিত</li>
+        <li>সাধারণ গণিত</li>
+        <li>তথ্য ও যোগাযোগ প্রযুক্তি</li>
+        <li>রসায়ন</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- মঙ্গলবার -->
+  <div class="accordion">
+    <div class="accordion-header">মঙ্গলবার</div>
+    <div class="accordion-content">
+      <ul>
+        <li>বাংলা সাহিত্য</li>
+        <li>ইংরেজি</li>
+        <li>শারীরিক শিক্ষা</li>
+        <li>বাংলাদেশ ও বিশ্বপরিচয়</li>
+        <li>পদার্থবিজ্ঞান</li>
         <li>সাধারণ গণিত</li>
         <li>জীববিজ্ঞান</li>
-        <li>ইংরেজি (১ম/২য়)</li>
       </ul>
     </div>
-
-    <div class="day">
-      <h2>বৃহস্পতিবার</h2>
-      <ul>
-        <li>রসায়ন</li>
-        <li>সাধারণ গণিত</li>
-        <li>তথ্য ও যোগাযোগ প্রযুক্তি</li>
-        <li>উচ্চতর গণিত</li>
-      </ul>
-    </div>
-
-    <div class="footer">
-      — মোঃ আমির হামজা 
-    
-    </div>
-
   </div>
+
+  <!-- বুধবার -->
+  <div class="accordion">
+    <div class="accordion-header">বুধবার</div>
+    <div class="accordion-content">
+      <ul>
+        <li>বাংলা ব্যাকরণ ও নির্মিত</li>
+        <li>বাংলাদেশ ও বিশ্বপরিচয়</li>
+        <li>রসায়ন</li>
+        <li>উচ্চতর গণিত</li>
+        <li>জীববিজ্ঞান</li>
+        <li>রসায়ন</li>
+        <li>English (For Today/Grammar and Composition)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- বৃহস্পতিবার -->
+  <div class="accordion">
+    <div class="accordion-header">বৃহস্পতিবার</div>
+    <div class="accordion-content">
+      <ul>
+        <li>বাংলা ব্যাকরণ ও নির্মিত</li>
+        <li>সাধারণ গণিত</li>
+        <li>পদার্থবিজ্ঞান</li>
+        <li>জীববিজ্ঞান</li>
+        <li>ইসলাম শিক্ষা</li>
+        <li>English (For Today/Grammar and Composition)</li>
+        <li>তথ্য ও যোগাযোগ প্রযুক্তি</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    © <span>TEAM SCIENCE • SSC 2028</span><br>
+    Developed by Md Amir Hamza 🚀
+  </div>
+</div>
+
+<!-- Holiday Popup -->
+<div id="holidayPopup" class="popup">
+  <div class="popup-box">
+    <span id="closePopup" class="popup-close">✖</span>
+    আজকে স্কুল বন্ধ 🎉
+  </div>
+</div>
+
+<script>
+  // Accordion Logic
+  const accordions = document.querySelectorAll(".accordion");
+  accordions.forEach(acc => {
+    acc.querySelector(".accordion-header").addEventListener("click", () => {
+      document.querySelectorAll(".accordion").forEach(a => {
+        if(a !== acc) a.classList.remove("active");
+      });
+      acc.classList.toggle("active");
+    });
+  });
+
+  // Holiday Popup Logic
+  const today = new Date().getDay(); // 0=Sun, 5=Fri, 6=Sat
+  if(today === 5 || today === 6){
+    const popup = document.getElementById("holidayPopup");
+    const closeBtn = document.getElementById("closePopup");
+
+    // Show popup
+    popup.style.display = "flex";
+
+    // Auto close after 3 sec
+    const autoClose = setTimeout(()=> { popup.style.display = "none"; }, 3000);
+
+    // Close when user clicks ✖
+    closeBtn.addEventListener("click", ()=>{
+      popup.style.display = "none";
+      clearTimeout(autoClose);
+    });
+  }
+</script>
 
 </body>
 </html>
