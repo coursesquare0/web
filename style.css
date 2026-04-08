@@ -4,8 +4,11 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #020617;
   color: #e2e8f0;
+
   display: flex;
-  justify-content: center;
+  flex-direction: column;   /* 🔥 ADD */
+  align-items: center;      /* 🔥 ADD */
+
   padding: 20px;
 }
 
@@ -145,10 +148,9 @@ li {
   margin-top: 25px;
   font-size: 13px;
   color: #64748b;
-}
 
-.footer span {
-  color: #38bdf8;
+  width: 100%;        /* 🔥 ADD */
+  max-width: 850px;   /* 🔥 ADD */
 }
 
 /* ===== Popup ===== */
