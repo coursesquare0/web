@@ -119,19 +119,56 @@ document.querySelectorAll(".accordion-header").forEach(header=>{
   header.onclick = ()=> header.parentElement.classList.toggle("active");
 });
 
-const day = new Date().getDay();
+// ===== DATE CONFIG =====
+const today = new Date();
+
+// Range
+const startDate = new Date("2026-04-22");
+const endDate   = new Date("2026-05-19");
+
+// Normal class dates
+const normalDates = [
+  "2026-04-22",
+  "2026-04-27",
+  "2026-04-29",
+  "2026-05-04",
+  "2026-05-18",
+  "2026-05-19"
+];
+
+// Convert today to YYYY-MM-DD
+const formatDate = today.toISOString().split("T")[0];
+
+// Check inside range
+const inRange = today >= startDate && today <= endDate;
+
+// ===== FUNCTION =====
+function limitSubjects() {
+  document.querySelectorAll(".accordion-content ul").forEach(ul => {
+    const items = ul.querySelectorAll("li");
+    items.forEach((li, index) => {
+      if(index >= 4) li.style.display = "none";
+    });
+  });
+}
+
+// ===== APPLY LOGIC =====
+if(inRange && !normalDates.includes(formatDate)){
+  limitSubjects(); // Only 4 subjects
+}
+
+// ===== PROGRESS =====
+const day = today.getDay();
 let progress = (day <= 4) ? (day + 1) * 20 : 100;
 let text = (day <= 4) ? progress + "% of week completed" : "Holiday 🎉";
 
 document.getElementById("progressFill").style.width = progress + "%";
 document.getElementById("progressText").innerText = text;
 
+// ===== HOLIDAY POPUP =====
 if(day === 5 || day === 6){
   const popup = document.getElementById("holidayPopup");
   popup.style.display = "flex";
   setTimeout(()=> popup.style.display = "none", 3000);
 }
 </script>
-
-</body>
-      </html>
