@@ -6,6 +6,29 @@
 <title>SSC 2028 | Home</title>
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+.countdown-box{
+  margin-top:20px;
+  padding:15px;
+  border-radius:12px;
+  background:#111;
+  color:#fff;
+  text-align:center;
+}
+
+.countdown-title{
+  font-size:14px;
+  opacity:0.7;
+}
+
+#countdown{
+  font-size:22px;
+  font-weight:bold;
+  margin-top:8px;
+}
+</style>
+
 </head>
 
 <body>
@@ -14,6 +37,12 @@
 
   <h1>SSC 2028</h1>
   <p class="subtitle">Study Dashboard</p>
+
+  <!-- 🔥 Countdown -->
+  <div class="countdown-box">
+    <div class="countdown-title">Half Yearly Exam Countdown</div>
+    <div id="countdown">Loading...</div>
+  </div>
 
   <div class="nav">
     <a href="routine.html">📅 Class Routine</a>
@@ -26,6 +55,33 @@
   © <span>TEAM SCIENCE • SSC 2028</span><br>
   Developed by Md Amir Hamza
 </div>
+
+<script>
+// ===== COUNTDOWN =====
+const examDate = new Date("2026-06-28T00:00:00").getTime();
+
+function updateCountdown(){
+  const now = new Date().getTime();
+  const diff = examDate - now;
+
+  if(diff <= 0){
+    document.getElementById("countdown").innerText = "Exam Started 🚀";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+  document.getElementById("countdown").innerText =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// update every second
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
 
 </body>
 </html>
