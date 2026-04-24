@@ -115,6 +115,106 @@ Developed by Md Amir Hamza
 </div>
 
 <script>
+
+// Accordion toggle
+document.querySelectorAll(".accordion-header").forEach(header=>{
+  header.onclick = ()=> header.parentElement.classList.toggle("active");
+});
+
+// ===== DATE CONFIG =====
+const today = new Date();
+const startDate = new Date("2026-04-22");
+const endDate   = new Date("2026-05-19");
+
+const normalDates = [
+  "2026-04-22",
+  "2026-04-27",
+  "2026-04-29",
+  "2026-05-04",
+  "2026-05-18",
+  "2026-05-19"
+];
+
+// Format date (safe)
+const formatDate = today.toLocaleDateString('en-CA');
+
+// Normalize
+today.setHours(0,0,0,0);
+startDate.setHours(0,0,0,0);
+endDate.setHours(0,0,0,0);
+
+const inRange = today >= startDate && today <= endDate;
+
+// ===== MAIN LOGIC =====
+function applyRoutineLogic() {
+  const todayDay = today.getDay(); // 0=Sun
+
+  document.querySelectorAll(".accordion").forEach((acc, index) => {
+    const ul = acc.querySelector("ul");
+    const items = ul.querySelectorAll("li");
+
+    // Match today with accordion index
+    let mappedDay = todayDay === 0 ? 0 : todayDay - 1;
+
+    if(index === mappedDay){
+
+      // Today
+      if(inRange && normalDates.includes(formatDate)){
+        // Show all
+        items.forEach(li => li.style.display = "list-item");
+
+        // Mark today
+        acc.querySelector(".accordion-header").innerText += " (Today)";
+      } else {
+        // Show only 4
+        items.forEach((li, i) => {
+          if(i >= 4) li.style.display = "none";
+        });
+      }
+
+    } else {
+      // Other days → always 4
+      items.forEach((li, i) => {
+        if(i >= 4) li.style.display = "none";
+      });
+    }
+
+  });
+}
+
+applyRoutineLogic();
+
+// ===== PROGRESS =====
+const day = today.getDay();
+let progress = (day <= 4) ? (day + 1) * 20 : 100;
+let text = (day <= 4) ? progress + "% of week completed" : "Holiday 🎉";
+
+document.getElementById("progressFill").style.width = progress + "%";
+document.getElementById("progressText").innerText = text;
+
+// ===== HOLIDAY POPUP =====
+if(day === 5 || day === 6){
+  const popup = document.getElementById("holidayPopup");
+  popup.style.display = "flex";
+  setTimeout(()=> popup.style.display = "none", 3000);
+}
+
+</script>
+
+</body>
+</html></div>
+
+</div>
+
+<!-- Popup -->
+<div id="holidayPopup" class="popup">
+  <div class="popup-box">
+    <span id="closePopup" class="popup-close"></span>
+    আজকে স্কুল বন্ধ 🎉
+  </div>
+</div>
+
+<script>
 document.querySelectorAll(".accordion-header").forEach(header=>{
   header.onclick = ()=> header.parentElement.classList.toggle("active");
 });
