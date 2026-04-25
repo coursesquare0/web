@@ -52,11 +52,11 @@ h1{
   padding:12px;
 }
 
-/* ===== GLITCH CRASH SCREEN ===== */
+/* ===== GLITCH CRASH SCREEN (FIXED) ===== */
 #crashScreen{
   position:fixed;
   inset:0;
-  background:black;
+  background:radial-gradient(circle,#000 40%,#050505);
   z-index:999999;
   display:flex;
   align-items:center;
@@ -67,6 +67,11 @@ h1{
   animation:flicker 0.12s infinite;
 }
 
+/* prevent interaction ONLY in this page */
+body{
+  overflow:hidden;
+}
+
 .crashBox h1{
   color:#ff0033;
   text-shadow:2px 0 red,-2px 0 blue;
@@ -75,6 +80,7 @@ h1{
 
 .crashBox p{
   color:#00ff88;
+  opacity:0.9;
 }
 
 .loader{
@@ -110,7 +116,7 @@ h1{
 
 <body>
 
-<!-- 🔥 CRASH OVERLAY -->
+<!-- 🔥 CRASH SCREEN -->
 <div id="crashScreen">
   <div class="crashBox">
     <h1>⚠ SYSTEM CRASHED</h1>
@@ -165,8 +171,6 @@ h1{
 document.querySelectorAll(".accordion-header").forEach(h=>{
   h.onclick=()=>h.parentElement.classList.toggle("active");
 });
-
-// optional: keep crash screen forever (no remove)
 </script>
 
 </body>
