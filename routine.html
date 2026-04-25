@@ -5,99 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>নবম শ্রেণীর ক্লাস রুটিন ২০২৬</title>
 
-<style>
-body{
-  font-family: sans-serif;
-  background:#0f172a;
-  color:white;
-  margin:0;
-}
-
-.container{
-  max-width:500px;
-  margin:auto;
-  padding:15px;
-}
-
-h1{
-  text-align:center;
-}
-
-/* Progress */
-.progress-card{
-  background:#1e293b;
-  padding:10px;
-  border-radius:10px;
-  margin-bottom:15px;
-}
-
-.progress-bar{
-  height:8px;
-  background:#334155;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-#progressFill{
-  height:100%;
-  width:0%;
-  background:#22c55e;
-}
-
-/* Accordion */
-.accordion{
-  background:#1e293b;
-  margin-bottom:10px;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.accordion-header{
-  padding:12px;
-  cursor:pointer;
-  background:#334155;
-}
-
-.accordion-content{
-  display:none;
-  padding:10px;
-}
-
-.accordion.active .accordion-content{
-  display:block;
-}
-
-ul{
-  padding-left:18px;
-}
-
-/* Popup */
-.popup{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background:rgba(0,0,0,0.7);
-  justify-content:center;
-  align-items:center;
-}
-
-.popup-box{
-  background:white;
-  color:black;
-  padding:20px;
-  border-radius:10px;
-}
-
-.footer{
-  text-align:center;
-  margin-top:20px;
-  font-size:14px;
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -107,14 +15,14 @@ ul{
 
 <!-- Progress -->
 <div class="progress-card">
-  <div>Weekly Progress</div>
+  <div class="progress-title">Weekly Progress</div>
   <div class="progress-bar">
     <div id="progressFill"></div>
   </div>
   <div id="progressText"></div>
 </div>
 
-<!-- Days -->
+<!-- Accordion Days -->
 
 <div class="accordion">
   <div class="accordion-header">রবিবার</div>
@@ -130,6 +38,171 @@ ul{
     </ul>
   </div>
 </div>
+
+<div class="accordion">
+  <div class="accordion-header">সোমবার</div>
+  <div class="accordion-content">
+    <ul>
+      <li>বাংলা ব্যাকরণ ও নির্মিতি</li>
+      <li>পদার্থবিজ্ঞান</li>
+      <li>English Grammar & Composition</li>
+      <li>সাধারণ গণিত</li>
+      <li>তথ্য ও যোগাযোগ প্রযুক্তি</li>
+      <li>রসায়ন</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">মঙ্গলবার</div>
+  <div class="accordion-content">
+    <ul>
+      <li>বাংলা সাহিত্য</li>
+      <li>English Grammar & Composition</li>
+      <li>শারীরিক শিক্ষা</li>
+      <li>বাংলাদেশ ও বিশ্বপরিচয়</li>
+      <li>রসায়ন</li>
+      <li>সাধারণ গণিত</li>
+      <li>জীববিজ্ঞান</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">বুধবার</div>
+  <div class="accordion-content">
+    <ul>
+      <li>বাংলা সাহিত্য</li>
+      <li>বাংলাদেশ ও বিশ্বপরিচয়</li>
+      <li>রসায়ন</li>
+      <li>উচ্চতর গণিত</li>
+      <li>জীববিজ্ঞান</li>
+      <li>ইসলাম শিক্ষা</li>
+      <li>English For Today</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">বৃহস্পতিবার</div>
+  <div class="accordion-content">
+    <ul>
+      <li>বাংলা সহপাঠ</li>
+      <li>সাধারণ গণিত</li>
+      <li>পদার্থবিজ্ঞান</li>
+      <li>জীববিজ্ঞান</li>
+      <li>ইসলাম শিক্ষা</li>
+      <li>English For Today</li>
+      <li>তথ্য ও যোগাযোগ প্রযুক্তি</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+© <span>TEAM SCIENCE • SSC 2028</span><br>
+Developed by Md Amir Hamza
+</div>
+
+</div>
+
+<!-- Popup -->
+<div id="holidayPopup" class="popup">
+  <div class="popup-box">
+    <span id="closePopup" class="popup-close"></span>
+    আজকে স্কুল বন্ধ 🎉
+  </div>
+</div>
+
+<script>
+
+// Accordion toggle
+document.querySelectorAll(".accordion-header").forEach(header=>{
+  header.onclick = ()=> header.parentElement.classList.toggle("active");
+});
+
+// ===== DATE CONFIG =====
+const today = new Date();
+const startDate = new Date("2026-04-22");
+const endDate   = new Date("2026-05-19");
+
+const normalDates = [
+  "2026-04-22",
+  "2026-04-27",
+  "2026-04-29",
+  "2026-05-04",
+  "2026-05-18",
+  "2026-05-19"
+];
+
+// Format date (safe)
+const formatDate = today.toLocaleDateString('en-CA');
+
+// Normalize
+today.setHours(0,0,0,0);
+startDate.setHours(0,0,0,0);
+endDate.setHours(0,0,0,0);
+
+const inRange = today >= startDate && today <= endDate;
+
+// ===== MAIN LOGIC =====
+function applyRoutineLogic() {
+  const todayDay = today.getDay(); // 0=Sun
+
+  document.querySelectorAll(".accordion").forEach((acc, index) => {
+    const ul = acc.querySelector("ul");
+    const items = ul.querySelectorAll("li");
+
+    // Match today with accordion index
+    let mappedDay = todayDay === 0 ? 0 : todayDay - 1;
+
+    if(index === mappedDay){
+
+      // Today
+      if(inRange && normalDates.includes(formatDate)){
+        // Show all
+        items.forEach(li => li.style.display = "list-item");
+
+        // Mark today
+        acc.querySelector(".accordion-header").innerText += " (Today)";
+      } else {
+        // Show only 4
+        items.forEach((li, i) => {
+          if(i >= 4) li.style.display = "none";
+        });
+      }
+
+    } else {
+      // Other days → always 4
+      items.forEach((li, i) => {
+        if(i >= 4) li.style.display = "none";
+      });
+    }
+
+  });
+}
+
+applyRoutineLogic();
+
+// ===== PROGRESS =====
+const day = today.getDay();
+let progress = (day <= 4) ? (day + 1) * 20 : 100;
+let text = (day <= 4) ? progress + "% of week completed" : "Holiday 🎉";
+
+document.getElementById("progressFill").style.width = progress + "%";
+document.getElementById("progressText").innerText = text;
+
+// ===== HOLIDAY POPUP =====
+if(day === 5 || day === 6){
+  const popup = document.getElementById("holidayPopup");
+  popup.style.display = "flex";
+  setTimeout(()=> popup.style.display = "none", 3000);
+}
+
+</script>
+
+</body>
+</html></div>
 
 <div class="accordion">
   <div class="accordion-header">সোমবার</div>
@@ -276,76 +349,6 @@ if(day === 5 || day === 6){
 
 </script>
 
-</body>
-</html></div>
-
-</div>
-
-<!-- Popup -->
-<div id="holidayPopup" class="popup">
-  <div class="popup-box">
-    <span id="closePopup" class="popup-close"></span>
-    আজকে স্কুল বন্ধ 🎉
-  </div>
-</div>
-
-<script>
-
-// Accordion toggle
-document.querySelectorAll(".accordion-header").forEach(header=>{
-  header.onclick = ()=> header.parentElement.classList.toggle("active");
-});
-
-// ===== DATE CONFIG =====
-const today = new Date();
-const startDate = new Date("2026-04-22");
-const endDate   = new Date("2026-05-19");
-
-const normalDates = [
-  "2026-04-22",
-  "2026-04-27",
-  "2026-04-29",
-  "2026-05-04",
-  "2026-05-18",
-  "2026-05-19"
-];
-
-// Format date (safe)
-const formatDate = today.toLocaleDateString('en-CA');
-
-// Normalize
-today.setHours(0,0,0,0);
-startDate.setHours(0,0,0,0);
-endDate.setHours(0,0,0,0);
-
-const inRange = today >= startDate && today <= endDate;
-
-// ===== MAIN LOGIC =====
-function applyRoutineLogic() {
-  const todayDay = today.getDay(); // 0=Sun
-
-  document.querySelectorAll(".accordion").forEach((acc, index) => {
-    const ul = acc.querySelector("ul");
-    const items = ul.querySelectorAll("li");
-
-    // Match today with accordion index
-    let mappedDay = todayDay === 0 ? 0 : todayDay - 1;
-
-    if(index === mappedDay){
-
-      // Today
-      if(inRange && normalDates.includes(formatDate)){
-        // Show all
-        items.forEach(li => li.style.display = "list-item");
-
-        // Mark today
-        acc.querySelector(".accordion-header").innerText += " (Today)";
-      } else {
-        // Show only 4
-        items.forEach((li, i) => {
-          if(i >= 4) li.style.display = "none";
-        });
-      }
 
     } else {
       // Other days → always 4
@@ -374,34 +377,16 @@ if(day === 5 || day === 6){
   setTimeout(()=> popup.style.display = "none", 3000);
 }
 
-</script>
-
-</body>
-</html></div>
-
-</div>
-
-<!-- Popup -->
-<div id="holidayPopup" class="popup">
-  <div class="popup-box">
-    <span id="closePopup" class="popup-close"></span>
-    আজকে স্কুল বন্ধ 🎉
-  </div>
-</div>
-
 <script>
+
+// Accordion toggle
 document.querySelectorAll(".accordion-header").forEach(header=>{
   header.onclick = ()=> header.parentElement.classList.toggle("active");
 });
 
-// ===== DATE CONFIG =====
+// ===== DATA =====
 const today = new Date();
 
-// Range
-const startDate = new Date("2026-04-22");
-const endDate   = new Date("2026-05-19");
-
-// Normal class dates
 const normalDates = [
   "2026-04-22",
   "2026-04-27",
@@ -411,31 +396,47 @@ const normalDates = [
   "2026-05-19"
 ];
 
-// ✅ FIXED DATE FORMAT (Bangladesh friendly)
-const formatDate = today.toLocaleDateString('en-CA');
+// ===== FIND CURRENT WEEK (SUN → THU) =====
+const currentDay = today.getDay(); // 0=Sun
 
-// Normalize time (important)
-today.setHours(0,0,0,0);
-startDate.setHours(0,0,0,0);
-endDate.setHours(0,0,0,0);
+const weekStart = new Date(today);
+weekStart.setDate(today.getDate() - currentDay);
 
-// Check inside range
-const inRange = today >= startDate && today <= endDate;
+const weekEnd = new Date(weekStart);
+weekEnd.setDate(weekStart.getDate() + 4); // Thursday পর্যন্ত
 
-// ===== FUNCTION =====
-function limitSubjects() {
-  document.querySelectorAll(".accordion-content ul").forEach(ul => {
-    const items = ul.querySelectorAll("li");
-    items.forEach((li, index) => {
-      if(index >= 4) li.style.display = "none";
+// Normalize time
+weekStart.setHours(0,0,0,0);
+weekEnd.setHours(0,0,0,0);
+
+// ===== FIND SPECIAL DAY IN THIS WEEK =====
+let specialDayIndex = -1;
+
+normalDates.forEach(dateStr=>{
+  const d = new Date(dateStr);
+  d.setHours(0,0,0,0);
+
+  if(d >= weekStart && d <= weekEnd){
+    specialDayIndex = d.getDay(); // 0=Sun,1=Mon...
+  }
+});
+
+// ===== APPLY RULE =====
+document.querySelectorAll(".accordion").forEach((acc, index)=>{
+
+  const items = acc.querySelectorAll("li");
+
+  if(index === specialDayIndex){
+    // ✅ ONLY THIS DAY → 7 subjects
+    items.forEach(li => li.style.display = "list-item");
+  } else {
+    // ❌ ALL OTHER DAYS → only 4
+    items.forEach((li,i)=>{
+      if(i >= 4) li.style.display = "none";
     });
-  });
-}
+  }
 
-// ===== APPLY LOGIC =====
-if(inRange && !normalDates.includes(formatDate)){
-  limitSubjects();
-}
+});
 
 // ===== PROGRESS =====
 const day = today.getDay();
@@ -451,4 +452,5 @@ if(day === 5 || day === 6){
   popup.style.display = "flex";
   setTimeout(()=> popup.style.display = "none", 3000);
 }
+
 </script>
