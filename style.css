@@ -517,45 +517,44 @@ li {
   100% { opacity: 1; }
    }
 
-  /* ===== EXAM ROUTINE ENHANCEMENT ===== */
-.exam-list {
-  margin-top: 15px;
+/* ===== EXAM ROUTINE TIMELINE ===== */
+.timeline {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
+/* Card */
 .exam-card {
   background: #1e293b;
-  border-radius: 14px;
-  padding: 14px;
   border-left: 4px solid #38bdf8;
-  transition: 0.25s ease;
+  padding: 12px;
+  border-radius: 12px;
+  transition: 0.3s;
 }
 
 .exam-card:hover {
-  transform: translateY(-2px);
+  transform: translateX(4px);
   background: #223046;
 }
 
+/* Date badge */
 .exam-date {
-  font-size: 14px;
+  font-size: 13px;
   color: #38bdf8;
-  font-weight: bold;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
+/* Subject */
 .exam-subject {
-  font-size: 16px;
-  margin-top: 5px;
+  font-size: 15px;
+  color: #e2e8f0;
   font-weight: 500;
 }
 
-.badge {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 12px;
-  padding: 3px 8px;
-  border-radius: 8px;
-  background: #0f172a;
-  color: #94a3b8;
+/* Optional highlight style for important exams */
+.exam-card.important {
+  border-left: 4px solid #f97316;
 }
